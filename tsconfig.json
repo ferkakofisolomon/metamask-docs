@@ -1,17 +1,27 @@
 {
-  // This file is not used in compilation. It is here just for a nice editor experience.
-  "extends": "@docusaurus/tsconfig",
   "compilerOptions": {
-    "rootDir": ".",
-    "baseUrl": ".",
+    "target": "ES2017",
+    "lib": ["dom", "dom.iterable", "esnext"],
+    "allowJs": true,
+    "skipLibCheck": true,
+    "strict": true,
+    "noEmit": true,
+    "esModuleInterop": true,
+    "module": "esnext",
+    "moduleResolution": "bundler",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "jsx": "preserve",
+    "incremental": true,
+    "plugins": [
+      {
+        "name": "next"
+      }
+    ],
     "paths": {
-      "@site/*": ["./*"],
-      "@theme/*": ["./node_modules/@docusaurus/theme-classic"],
-      "launchdarkly": ["./node_modules/launchdarkly-js-client-sdk/dist/ldclient.es.js"],
-      "sentry-plugin": ["./node_modules/@sentry/browser/build/npm/esm/index.js"]
-    },
-    "types": ["docusaurus-plugin-sass", "node"]
+      "@/*": ["./*"]
+    }
   },
-  "include": ["src/globals.d.ts", "./src/**/*", "middleware.ts"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
   "exclude": ["node_modules"]
 }
